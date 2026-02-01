@@ -17,6 +17,20 @@ Arguments:
 * `--destination`: Odoo deploy folder (e.g., **odoo-one**)
 * `--port`: Odoo port (e.g., **10019**)
 * `--chat`: Live chat port (e.g., **20019**)
+* `--password`: Master password (**admin_passwd**). Optional, defaults to the value in **etc/odoo.conf**.
+* `--db-password`: PostgreSQL password (env **POSTGRES_PASSWORD**/**PASSWORD**). Optional, defaults to `odoo19@2025`.
+
+Example with a custom master password:
+
+``` bash
+curl -s https://raw.githubusercontent.com/minhng92/odoo-19-docker-compose/master/run.sh | bash -s -- --destination odoo-one --port 10019 --chat 20019 --password test1234
+```
+
+Example with custom master + database passwords:
+
+``` bash
+curl -s https://raw.githubusercontent.com/minhng92/odoo-19-docker-compose/master/run.sh | bash -s -- --destination odoo-one --port 10019 --chat 20019 --password test1234 --db-password dbSecret123
+```
 
 If `curl` is not found, install it:
 
@@ -83,7 +97,7 @@ The **addons/** folder contains custom addons. Just put your custom addons if yo
 
 * To change Odoo configuration, edit file: **etc/odoo.conf**.
 * Log file: **etc/odoo-server.log**
-* Default database password (**admin_passwd**) is `minhng.info`, please change it @ [etc/odoo.conf#L75](/etc/odoo.conf#L75)
+* Default database password (**admin_passwd**) is `minhng.info`, update it via `--password` or in [etc/odoo.conf#L75](/etc/odoo.conf#L75)
 
 ## Odoo container management
 
