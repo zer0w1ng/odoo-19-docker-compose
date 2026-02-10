@@ -1,6 +1,8 @@
 postgresql/
 etc/odoo-server.log*
-etc/addons/
+etc/addons/*.zip
 etc/sessions/
 etc/filestore/
 etc/odoo.conf
+ez_addons/
+utils/
