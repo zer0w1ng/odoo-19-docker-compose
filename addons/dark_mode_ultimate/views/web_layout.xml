@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="layout_dark_mode" inherit_id="web.layout">
+        <xpath expr="//head" position="inside">
+            <t t-if="request and request.cookies.get('color_scheme') == 'dark'">
+                <t t-call-assets="web.assets_web_dark" t-css="true" t-js="false"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>
